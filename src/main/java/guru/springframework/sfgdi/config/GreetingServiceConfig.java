@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 /**
  * Created by jt on 2/20/21.
  */
-@PropertySource("classpath:datasource.properties")
 @Configuration
 public class GreetingServiceConfig {
 
