@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: dog,EN,qa
+
+guru:
+  userName: superUser
+  password: dbPass
+  jdbcUrl: someurl
+
+
+
