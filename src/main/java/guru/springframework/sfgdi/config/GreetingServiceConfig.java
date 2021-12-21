@@ -5,10 +5,8 @@ import com.springframework.pets.PetServiceFactory;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Service;
 
 /**
@@ -24,6 +22,7 @@ public class GreetingServiceConfig {
 
     @Profile({"dog", "default"})
     @Bean
+
     PetService dogPetService(PetServiceFactory petServiceFactory)
     {
         return  petServiceFactory.getPetService("dog");
