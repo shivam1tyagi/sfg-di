@@ -7,12 +7,22 @@ guru:
   password: dbPass
   jdbcUrl: someurl
 
+guru1:
+  userName: superUser
+  password: dbPass
+  jdbcUrl: someurl
+
 ---
 spring:
   config:
     activate:
       on-profile: prod
 guru:
+  userName: ProdUser
+  password: prodPassword
+  jdbcUrl: ProdUrl
+
+guru1:
   userName: ProdUser
   password: prodPassword
   jdbcUrl: ProdUrl

@@ -7,6 +7,7 @@ import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.jackson.JsonComponent;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Service;
@@ -15,14 +16,15 @@ import org.springframework.stereotype.Service;
  * Created by jt on 2/20/21.
  */
 @Configuration
+@EnableConfigurationProperties(ConstructorConfig.class)
 public class GreetingServiceConfig {
 
     @Bean
-    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration){
+    FakeDataSource fakeDataSource(ConstructorConfig constructorConfig){
         FakeDataSource fakeDataSource=new FakeDataSource();
-        fakeDataSource.setUserName(sfgConfiguration.getUserName());
-        fakeDataSource.setPassword(sfgConfiguration.getPassword());
-        fakeDataSource.setJdbcUrl(sfgConfiguration.getJdbcUrl());
+        fakeDataSource.setUserName(constructorConfig.getUserName());
+        fakeDataSource.setPassword(constructorConfig.getPassword());
+        fakeDataSource.setJdbcUrl(constructorConfig.getJdbcUrl());
 
         return fakeDataSource;
     }
