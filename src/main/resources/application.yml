@@ -1,11 +1,18 @@
 spring:
   profiles:
-    active: dog,EN,qa
+    active: dog,EN,prod
 
 guru:
   userName: superUser
   password: dbPass
   jdbcUrl: someurl
 
-
-
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+guru:
+  userName: ProdUser
+  password: prodPassword
+  jdbcUrl: ProdUrl
